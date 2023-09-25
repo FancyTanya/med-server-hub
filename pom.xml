@@ -9,12 +9,12 @@
         <relativePath/>
     </parent>
     <groupId>mediservehub.github.com</groupId>
-    <artifactId>med-server-hub</artifactId>
+    <artifactId>medserverhub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>med-server-hub</name>
     <description>med-server-hub</description>
     <properties>
-        <java.version>20</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

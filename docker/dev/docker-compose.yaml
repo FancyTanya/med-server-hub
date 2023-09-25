@@ -1,0 +1,37 @@
+version: '3.8'
+
+networks:
+  webnetwork:
+
+services:
+  med-server-hub:
+    container_name: med-server-hub
+    build: ../..
+    restart: unless-stopped
+    networks:
+      webnetwork:
+    ports:
+      - '8080:8080'
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: db
+      MYSQL_USER:
+      MYSQL_PASSWORD:
+    depends_on:
+      - database
+
+  database:
+    container_name: database
+    image: mysql:8.0.33
+    restart: unless-stopped
+    networks:
+      webnetwork:
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: db
+      MYSQL_USER:
+      MYSQL_PASSWORD:
+    ports:
+      - '3333:3306'
+volumes:
+  local_mysql:
